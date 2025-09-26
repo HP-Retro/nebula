@@ -1,6 +1,9 @@
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, location) {
     game.gameOver(true)
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, location) {
+    tiles.setCurrentTilemap(tilemap`level4`)
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`homeportal1`, function (sprite, location) {
     tiles.setCurrentTilemap(tilemap`level2`)
     tiles.placeOnTile(LostSoul, tiles.getTileLocation(4, 9))
@@ -9,6 +12,10 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     if (LostSoul.isHittingTile(CollisionDirection.Bottom)) {
         LostSoul.vy = -175
     }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile6`, function (sprite, location) {
+    tiles.setCurrentTilemap(tilemap`level3`)
+    tiles.placeOnTile(LostSoul, tiles.getTileLocation(3, 19))
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     if (LostSoul.vx > 0) {
@@ -43,6 +50,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, LostSoul, 100, 0)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile7`, function (sprite, location) {
+    game.gameOver(true)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, location) {
     sprites.destroy(LostSoul)
